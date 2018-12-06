@@ -1,5 +1,18 @@
+div.keepsthingsorderly {
+  display:flex;
+  flex-wrap: wrap;
+}
+
 aside.pls-move-left {
   text-align: left;
+  display: flex;
+  align-self: flex-start;
+}
+
+
+div.pls-move-right {
+  display: flex;
+  align-self: flex-end
 }
 
 .App {
