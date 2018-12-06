@@ -1,25 +1,37 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import countries from './data/countries.json';
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import CountryDetails from './components/CountryDetails'
+
+const countryList = countries.map( (country) => {
+    return <li key={country.cca3} ><Link to={`/${country.cca3}`}>{country.name.common}</Link></li>
+  })
 
 class App extends Component {
+
   render() {
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <nav>I'm a stupid nav</nav>
+        <Router>
+          <div>
+            <div className="container">
+              <aside className="pls-move-left">
+                <ul>
+                  {countryList}
+                </ul>
+              </aside>
+              <main>
+                <Switch>
+                  <Route path={'/:name'} component={CountryDetails} />
+                  <Route path={'/'}/>
+                </Switch>
+              </main>
+            </div>
+          </div>
+        </Router>
       </div>
     );
   }
