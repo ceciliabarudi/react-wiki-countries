@@ -1,6 +1,6 @@
 'Use strict';
 import React, { Component } from 'react';
-import { BrowserRouter as Route, Switch, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import countries from '../data/countries.json';
 
 class CountryDetails extends Component {
